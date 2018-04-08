@@ -72,5 +72,6 @@ def startServer(server_address):
     # Tiến hành chạy server
     httpd.serve_forever()
 
-server_address = (config.server_ip, config.server_port)
+# server_address = (config.server_ip, config.server_port)
+server_address = (config.server_ip, PORT)
 startServer(server_address)
