@@ -4,8 +4,6 @@ import config
 import semantic 
 import os
 
-PORT = os.environ.get("PORT", 5000)
-
 class SimpleHTTP(BaseHTTPRequestHandler):
   # Nhận GET request gửi lên.
     def _set_headers(self):
@@ -73,5 +71,5 @@ def startServer(server_address):
     httpd.serve_forever()
 
 # server_address = (config.server_ip, config.server_port)
-server_address = (config.server_ip, int(PORT))
+server_address = (host='0.0.0.0', int(os.environ.get("PORT", 5000)))
 startServer(server_address)
