@@ -22,14 +22,14 @@ class SimpleHTTP(BaseHTTPRequestHandler):
     def do_GET(self):
         self._set_headers()
         html = open("./client.html")
+        html = html.read()
         html = html.replace(" < -- host -- >", '%s:%s' % (config.server_ip, int(os.environ.get("PORT", config.server_port))) )
-        print(html)
         # message = website
         # message = """<html>
         #     <head></head>
         #     <body><p>Hello World!</p></body>
         #     </html>"""
-        self.wfile.write(str.encode(html.read()))
+        self.wfile.write(str.encode(html))
         # self.wfile.write(bytes(message, "utf8"))
 
     def do_HEAD(self):
