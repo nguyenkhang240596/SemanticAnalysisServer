@@ -4,6 +4,8 @@ import config
 import semantic 
 import os
 
+PORT = environ.get('PORT', "8080")
+
 class SimpleHTTP(BaseHTTPRequestHandler):
   # Nhận GET request gửi lên.
     def _set_headers(self):
