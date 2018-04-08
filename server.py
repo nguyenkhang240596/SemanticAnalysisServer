@@ -73,5 +73,5 @@ def startServer(server_address):
     httpd.serve_forever()
 
 # server_address = (config.server_ip, config.server_port)
-server_address = (config.server_ip, PORT)
+server_address = (config.server_ip, int(PORT))
 startServer(server_address)
