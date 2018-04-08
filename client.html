@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	</head>
+	<!-- <script type="text/javascript" src="lib/jquery-3.3.1.min.js"></script> -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<body>
+		<script type="text/javascript">
+			function callMyApi() {
+				var sentence = $("#sentence").val()
+				var url = "http://127.0.0.1:3333"
+				var data = JSON.stringify({ "sentence" : sentence})
+				$.ajax(url, {
+				    type:"POST",
+				    crossDomain: true,
+				    contentType:'application/json',
+				    data: data, 
+				    success: function (data) {
+			            $("#res").html(data);
+			        },
+			        error: function (jqXHR, textStatus, errorThrown) {
+			            debugger;
+			            alert("Error");
+			        }
+				});
+			}
+		</script>
+		<form>
+			<textarea id="sentence" rows="10" cols="60">Chưa được trải nghiệm thực tế nhưng lướt qua dàn cấu hình thì thấy Prime X max 2018 này khá ngon so với các dòng điện thoại khác cùng phân khúc. 1 là 4 cam độ phân giải cao, tích hợp đầy đủ xóa phông, selfie góc rộng. 2 là pin trâu. 3 là giao diện đẹp. 4 là giá hợp lý
+			</textarea>
+		  <button type="button" onclick="callMyApi()">Phân tích</button>
+		  <div id="res"></div>
+		</form>
+	</body>
+</html>
