@@ -71,5 +71,5 @@ def startServer(server_address):
     httpd.serve_forever()
 
 # server_address = (config.server_ip, config.server_port)
-server_address = (host='0.0.0.0', int(os.environ.get("PORT", 5000)))
+server_address = ('0.0.0.0', int(os.environ.get("PORT", 5000)))
 startServer(server_address)
