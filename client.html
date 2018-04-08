@@ -9,7 +9,8 @@
 		<script type="text/javascript">
 			function callMyApi() {
 				var sentence = $("#sentence").val()
-				var url = "http://127.0.0.1:3333"
+				// var url = "http://127.0.0.1:3333"
+				var url = < -- host -- >
 				var data = JSON.stringify({ "sentence" : sentence})
 				$.ajax(url, {
 				    type:"POST",

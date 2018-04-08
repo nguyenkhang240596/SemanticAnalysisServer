@@ -22,6 +22,8 @@ class SimpleHTTP(BaseHTTPRequestHandler):
     def do_GET(self):
         self._set_headers()
         html = open("./client.html")
+        html = html.replace(" < -- host -- >", '%s:%s' % (config.server_ip, int(os.environ.get("PORT", config.server_port))) )
+        print(html)
         # message = website
         # message = """<html>
         #     <head></head>
@@ -71,5 +73,5 @@ def startServer(server_address):
     httpd.serve_forever()
 
 # server_address = (config.server_ip, config.server_port)
-server_address = ('0.0.0.0', int(os.environ.get("PORT", 5000)))
+server_address = (config.server_ip, int(os.environ.get("PORT", config.server_port)))
 startServer(server_address)
