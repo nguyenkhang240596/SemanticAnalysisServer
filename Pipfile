@@ -5,7 +5,7 @@ verify_ssl = true
 
 
 [packages]
-pymongo = "3.6.1"
+pymongo = "*"
 
 
 [requires]
