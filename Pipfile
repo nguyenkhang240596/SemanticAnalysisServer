@@ -3,9 +3,12 @@ url = ""
 verify_ssl = true
 
 
+
 [packages]
 
 
 
 [requires]
 python_full_version = "3.6.3"
+
+web: python myApp.py
