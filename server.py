@@ -4,7 +4,7 @@ import config
 import semantic 
 import os
 
-PORT = os.environ.get('PORT', "8080")
+PORT = os.environ.get('PORT', 8080)
 
 class SimpleHTTP(BaseHTTPRequestHandler):
   # Nhận GET request gửi lên.
