@@ -13,6 +13,8 @@ dictionary =[]
 scoreOfWord = {}
 
 def init():
+    dictionary =[]
+    scoreOfWord = {}
     corpus = corpusCollection.find()
     for term in corpus:
     	dictionary.append(term["content"])

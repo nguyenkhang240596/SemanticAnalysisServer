@@ -38,6 +38,9 @@ class SimpleHTTP(BaseHTTPRequestHandler):
     def do_POST(self):
         # Doesn't do anything with posted data
 #         self._set_headers()
+        #load database
+        semantic.init()
+        
         self._set_cors_headers()
         self.data_string = self.rfile.read(int(self.headers['Content-Length']))
         data = self.data_string.decode("utf-8")
@@ -63,7 +66,6 @@ def startServer(server_address):
     # cấu hình host và cổng port cho server
 
     # Khởi tạo server với thông số cấu hình ở trên.
-    semantic.init()
     httpd = HTTPServer(server_address, SimpleHTTP)
 
 
