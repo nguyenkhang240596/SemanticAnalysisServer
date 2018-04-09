@@ -39,8 +39,6 @@ class SimpleHTTP(BaseHTTPRequestHandler):
         # Doesn't do anything with posted data
 #         self._set_headers()
         #load database
-        semantic.init()
-        
         self._set_cors_headers()
         self.data_string = self.rfile.read(int(self.headers['Content-Length']))
         data = self.data_string.decode("utf-8")

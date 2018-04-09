@@ -9,17 +9,6 @@ db = MongoClient(uri).get_database()
 print(db)
 corpusCollection = db.Corpus
 
-dictionary =[]
-scoreOfWord = {}
-
-def init():
-    dictionary =[]
-    scoreOfWord = {}
-    corpus = corpusCollection.find()
-    for term in corpus:
-    	dictionary.append(term["content"])
-    	scoreOfWord[term["content"]] = term["weight"]
-
 def WordOfText(s):
     s = s.strip().lower()
     s = s.replace(',', ' ')
@@ -44,9 +33,13 @@ def extract(text):
         term = term.strip()  
         preFix = preFix.strip()
         
-        if (term in dictionary):
+        term = corpusCollection.find_one({"content": "cao"})
+        if (term != None):
             Terms.append(term)
-            EmotionalValues.append(scoreOfWord[term])
+            EmotionalValues.append(term["weight"])
+        # if (term in dictionary):
+        #     Terms.append(term)
+        #     EmotionalValues.append(scoreOfWord[term])
             if (start == 0):
                 isStop = True
             else:
