@@ -33,10 +33,13 @@ def extract(text):
         term = term.strip()  
         preFix = preFix.strip()
         
-        term = corpusCollection.find_one({"content": "cao"})
-        if (term != None):
+         if (len(term) < 5 ):
+            foundTerm = corpusCollection.find_one({"content": term})
+        else:
+            foundTerm = None
+        if (foundTerm != None):
             Terms.append(term)
-            EmotionalValues.append(term["weight"])
+            EmotionalValues.append(foundTerm["weight"])
         # if (term in dictionary):
         #     Terms.append(term)
         #     EmotionalValues.append(scoreOfWord[term])
